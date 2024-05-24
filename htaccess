@@ -1,0 +1,30 @@
+#DirectoryIndex index.php index.html index.htm index2.html
+
+ErrorDocument 403 /Err.html
+ErrorDocument 404 /Err.html
+ErrorDocument 500 /Err.html
+
+
+
+# Prevent access to /idPass directory
+<Files "idPass.txt">
+    Require all denied
+    ErrorDocument 403 "Access Blocked By >> TheGreenH4ck3r"
+</Files>
+
+# Prevent access to database.txt file
+<Files "database.txt">
+    Require all denied
+    ErrorDocument 403 "Access Blocked By >> TheGreenH4ck3r"
+</Files>
+
+
+<IfModule mod_headers.c>
+    <Directory "/htdocs/usrPics/">
+        <FilesMatch "\.(png|jpg|jpeg|gif)$">
+            Header set Cache-Control "no-cache, no-store, must-revalidate"
+            Header set Pragma "no-cache"
+            Header set Expires "0"
+        </FilesMatch>
+    </Directory>
+</IfModule>

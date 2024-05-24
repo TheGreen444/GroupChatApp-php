@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /idPass.txt
+Disallow: /database.txt
